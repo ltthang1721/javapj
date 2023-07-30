@@ -5,11 +5,11 @@ import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.SQLException;
 import java.sql.PreparedStatement;
-public class sachDAO {
+public class sachDAO extends GenericDAO{
     public void insertSach(sach sach){
         String query = "INSERT INTO sach" + "(MaSach, TenSach, MaTL, MaNXB, MaTG, SL, GiaTien, Hinh, UuTien, MaDM) VALUES" + "(?,?,?,?,?,?,?,?,?,?);";
         try (Connection conn = DriverManager.getConnection("jdbc:mysql://127.0.0.1:3306/ex1", "root", "1721");
-             PreparedStatement preparedStatement = conn.prepareStatement(query)) {
+            PreparedStatement preparedStatement = conn.prepareStatement(query)) {
             preparedStatement.setString(1, sach.getMaSach());
             preparedStatement.setString(2, sach.getTenSach());
             preparedStatement.setString(3, sach.getMaTL());
